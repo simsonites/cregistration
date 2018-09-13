@@ -7,4 +7,6 @@ import com.softpager.cregistration.entities.Student;
 public interface StudentDao {
 
 	List<Student> getStudents();
+
+	Student getStudent(Student theId);
 }

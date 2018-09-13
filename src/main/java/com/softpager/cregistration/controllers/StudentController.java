@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.softpager.cregistration.entities.Student;
@@ -23,7 +24,14 @@ public class StudentController {
 		List<Student> allStudents = studentService.getStudents();	
 		System.out.println(allStudents);
 		model.addAttribute("student", allStudents);
-		return  "students";		
+		return  "students";			
+	}
+		
+	@GetMapping("/details")
+	public String getStudent(@ModelAttribute("student") Student theId, Model model) {
+		Student theStudent = studentService.getStudent(theId);
+		model.addAttribute("student", theStudent);
+		return "student-detail";
 		
 	}
 

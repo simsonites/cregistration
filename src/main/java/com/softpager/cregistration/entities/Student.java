@@ -117,11 +117,11 @@ public class Student {
 		this.setCourses(courses);
 	}
 
-	@Override
-	public String toString() {
-		return "Student [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", email="
-				+ this.email + ", gender=" + this.gender + ", courses=" + this.courses + "]";
-	}	
+//	@Override
+//	public String toString() {
+//		return "Student [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", email="
+//				+ this.email + ", gender=" + this.gender + ", courses=" + this.courses + "]";
+//	}	
 		
 }
 

@@ -26,7 +26,8 @@ public class CRPWebMvcConfig implements WebMvcConfigurer {
 		
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/statics/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	
 	}
 
 }
