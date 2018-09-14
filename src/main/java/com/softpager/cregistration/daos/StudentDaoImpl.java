@@ -33,16 +33,19 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public Student getStudent(Student theId) {
+	public Student getStudent(int theId) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		CriteriaBuilder cBuilder = currentSession.getCriteriaBuilder();
-		CriteriaQuery<Student> studentCriteriaQuery = cBuilder.createQuery(Student.class);
-		Root<Student> rootStudentQuery =  studentCriteriaQuery.from(Student.class);
-		studentCriteriaQuery.select(rootStudentQuery);
-		Query<Student> studentQuery =  currentSession.createQuery(studentCriteriaQuery);
-		Student theStudent = studentQuery.getSingleResult();		
+		CriteriaBuilder cBuider = currentSession.getCriteriaBuilder();
+		CriteriaQuery<Student> studentCriteriaQuery = cBuider.createQuery(Student.class);
+		Root<Student> studentRootQuery = studentCriteriaQuery.from(Student.class);
+		studentCriteriaQuery.select(studentRootQuery).where(cBuider.equal(studentRootQuery.get("id"), theId));
+		Query<Student> studentQuery = currentSession.createQuery(studentCriteriaQuery);
+		Student theStudent = studentQuery.getSingleResult();
 		return theStudent;
 	}
+
+
+
 
 }
 

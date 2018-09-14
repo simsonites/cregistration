@@ -8,5 +8,6 @@ public interface StudentDao {
 
 	List<Student> getStudents();
 
-	Student getStudent(Student theId);
+	Student getStudent(int theId);
+
 }

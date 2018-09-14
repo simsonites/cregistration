@@ -58,6 +58,7 @@ public class Instructor {
 		this.mobile = mobile;
 		this.email = email;
 		this.title = title;
+		this.courses = new ArrayList<>();
 	}
 
 	public int getId() {

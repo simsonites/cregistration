@@ -22,7 +22,7 @@ public class CourseController {
 	public String getCourses(Model model) {
 		List<Course> allCourses = courseService.getCourses();
 		System.out.println(allCourses);
-		model.addAttribute("course", allCourses);
+		model.addAttribute("courses", allCourses);
 		return "courses";
 	}
 

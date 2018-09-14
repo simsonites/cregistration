@@ -1,14 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- <%@ include file = "../includes/taglibs.jsp" %>
+<%@ include file="../includes/taglibs.jsp"%>
 <html>
 <head>
 <title>CRP | student details</title>
 
- <%@ include file = "../includes/css-js-links.jsp" %>  
+
+
+<%@ include file="../includes/css-js-links.jsp"%>
 
 </head>
 <body>
-   <%@ include file = "../includes/header.jsp" %>
+	<%@ include file="../includes/header.jsp"%>
 
 	<div class="container col-md-offset-2">
 		<div class="row">
@@ -37,8 +39,7 @@
 								<div class="col-sm-2">
 									<div class="prof-thumb">
 										<img
-											src="${pageContext.request.contextPath}/resources/images/rose.jpg"
-										/>
+											src="${pageContext.request.contextPath}/resources/images/rose.jpg" />
 									</div>
 								</div>
 
@@ -60,7 +61,7 @@
 											<h5 class="col-md-4">Email Address :</h5>
 											<h5 class="col-md-6">${student.email }</h5>
 										</div>
-										
+
 										<div class="row">
 											<h5 class="col-md-4">Gender :</h5>
 											<h5 class="col-md-6">${student.gender }</h5>
@@ -69,50 +70,40 @@
 										<div class="row">
 											<a class="col-md-4" href="${update }">Edit information</a> <a
 												class="col-md-4" href="${delete }"
-												onclick=" if(!(confirm(' Are you sure you want to delete registration ? '))) return false; "
-											>Delete registration</a>
+												onclick=" if(!(confirm(' Your registration details will deleted from the database '))) return false; ">Cancel
+												registration</a>
 										</div>
 									</div>
 								</div>
 							</div>
 							<!-- /.prof-details -->
-
-							<h3 class=" text-center">
-								Registered Courses <small><a href="${addCourse }"> &nbsp; register for
-										courses</a></small>
-							</h3>
+							<h3 class=" text-center">Registered Courses</h3>
 							<table class="table table-bordered">
-								<tr class="prof-name-list">
+								<tr class="prof-name-list event-title">
 									<th>Course Title</th>
 									<th>Number of Credits</th>
 									<th>Instructor</th>
+									<th>Course Content</th>
 									<th>Action</th>
 								</tr>
-								<tr>
-									<td>Advance Java Programming by Examples</td>
-									<td>30</td>
-									<td><a href="#">Prof. Sam Jefferson</a></td>
-									<td><a href="${delete }"
-										onclick=" if(!(confirm(' Are you sure you want to delete this student from the database ? '))) return false; "
-									>remove course</a></td>
-								</tr>
-								<tr>
-									<td>The Basics of Computing Programming</td>
-									<td>15</td>
-									<td><a href="#">Dr. Mary Public</a></td>
-									<td><a href="${delete }"
-										onclick=" if(!(confirm(' Are you sure you want to delete this student from the database ? '))) return false; "
-									><span class="glyphicon glyphicon-trash"></span></a></td>
-								</tr>
-								<tr>
-									<td>The Basics of Computing Science</td>
-									<td>30</td>
-									<td><a href="#">Prof. Moore Alvin</a></td>
-									<td><a href="${delete }"
-										onclick=" if(!(confirm(' Are you sure you want to delete this student from the database ? '))) return false; "
-									><span class="glyphicon glyphicon-trash"></span></a></td>
-								</tr>
+								<c:forEach var="course" items="${student.courses}">
+									<tr>
+										<td>${ course.title }</td>
+										<td>${ course.numberOfCredits }</td>
+										<td><a href="#">${ course.instructor.title } ${ course.instructor.firstName }
+												${ course.instructor.lastName }</a></td>
+										<td>${ course.description }</td>
+										<td><a href="${delete }"
+											onclick=" if(!(confirm(' This course will be removed from your registered courses '))) return false; "><button
+													class="btn btn-danger btn-xs">
+													<span class="glyphicon glyphicon-trash"></span>
+												</button></a></td>
+									</tr>
+								</c:forEach>
 							</table>
+							<h4>
+								<a href="${addCourse }"> &nbsp; Register for more courses</a>
+							</h4>
 						</div>
 						<!-- /.prof-list-item -->
 
@@ -125,7 +116,8 @@
 			<!-- /.col-md-4 -->
 		</div>
 	</div>
-    <%@ include file = "../includes/footer.jsp" %> 
+	<%@ include file="../includes/footer.jsp"%>
+
 </body>
 </html>
 

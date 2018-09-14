@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-
 @Entity
 @Table(name="students")
 public class Student {
@@ -26,7 +25,7 @@ public class Student {
 	@Id
 	@Column(name="student_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@Column(name="first_name")
 	@NotBlank(message="")
@@ -59,13 +58,14 @@ public class Student {
 		this.lastName = lastName;
 		this.email = email;
 		this.gender = gender;
+		this.courses = new ArrayList<>();
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

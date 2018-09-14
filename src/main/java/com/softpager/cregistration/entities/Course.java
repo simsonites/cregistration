@@ -1,5 +1,6 @@
 package com.softpager.cregistration.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ public class Course {
 	@Id
 	@Column(name="course_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	
 	@Column(name="title")
 	@NotBlank(message="")	
@@ -47,13 +48,14 @@ public class Course {
 		this.title = title;
 		this.description = description;
 		this.numberOfCredits = numberOfCredits;
+		this.students = new ArrayList<>();
 	}
 
-	public long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
