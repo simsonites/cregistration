@@ -8,4 +8,6 @@ public interface InstructorDao {
 
 	List<Instructor> getInstructors();
 
+	Instructor getInstructor(int theId);
+
 }

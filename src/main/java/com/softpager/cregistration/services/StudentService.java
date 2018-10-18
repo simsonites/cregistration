@@ -10,5 +10,13 @@ public interface StudentService {
 
 	Student getStudent(int theId);
 
+	Student registerForCourse(int sId, int cId);
+
+	void create(Student newStudent);
+
+	void delete(int theId);
+
+	List<Student> searchStudent(String studentName);
+
 
 }

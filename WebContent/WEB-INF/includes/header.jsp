@@ -8,9 +8,7 @@
 				<li class=""><a href="${pageContext.request.contextPath}/students/form">Home</a></li>
 				<li><a href="${pageContext.request.contextPath}/courses/list">Available Courses</a></li>
 				<li><a href="${pageContext.request.contextPath}/students/list">Current Students</a></li>		   		
-			</ul>
-			
-			
+			</ul>			
 			<ul class="main-menu  pull-right">						
 		     	<li><a href="${pageContext.request.contextPath}/admin/home">Login</a></li>			
 			</ul>
@@ -19,3 +17,16 @@
 		</div>
 	</div>
 	</header>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

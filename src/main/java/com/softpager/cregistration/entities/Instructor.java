@@ -45,8 +45,6 @@ public class Instructor {
 
 	@OneToMany(mappedBy = "instructor", fetch= FetchType.EAGER, cascade = { CascadeType.DETACH, CascadeType.MERGE,
 			CascadeType.PERSIST,	CascadeType.REFRESH })
-	/*@JoinTable(name = "course_instructor", joinColumns = @JoinColumn(name = "course_id"), 
-	                        inverseJoinColumns = @JoinColumn(name = "instructor_id"))*/
 	private List<Course> courses;
 
 	public Instructor() {
@@ -58,7 +56,7 @@ public class Instructor {
 		this.mobile = mobile;
 		this.email = email;
 		this.title = title;
-		this.courses = new ArrayList<>();
+	//	this.courses = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -117,10 +115,6 @@ public class Instructor {
 		this.courses = courses;
 	}
 
-	public static List<Instructor> getInstructors() {
-		return null;
-	}
-
 	public void add(Course tempCourse) {
 		if (courses == null) {
 			courses = new ArrayList<>();
@@ -129,12 +123,5 @@ public class Instructor {
 		tempCourse.setInstructor(this);
 	}
 
-	@Override
-	public String toString() {
-		return "Instructor [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName
-				+ ", mobile=" + this.mobile + ", email=" + this.email + ", title=" + this.title + ", courses="
-				+ this.courses + "]";
-	}
-	
 
 }

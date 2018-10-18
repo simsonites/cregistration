@@ -8,4 +8,8 @@ public interface CourseDao {
 
 	List<Course> getCourses();
 
+	Course registerForCourse(int sId, int cId);
+
+	Course getCourse(int theId);
+
 }

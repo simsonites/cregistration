@@ -17,8 +17,7 @@
     	    //check "select all" if all checkbox items are checked
     	    if ($('.checkbox:checked').length == $('.checkbox').length ){ 
     	        $("#checkall")[0].checked = true; //change "select all" checked status to true
-    	    }
-    	});
+    	    }});
      </script>
      
       

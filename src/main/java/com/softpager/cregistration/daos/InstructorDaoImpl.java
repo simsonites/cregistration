@@ -28,8 +28,45 @@ public class InstructorDaoImpl implements  InstructorDao {
 		Root<Instructor> instructorsRootQuery = instructorsCriteriaQuery.from(Instructor.class);
 		instructorsCriteriaQuery.select(instructorsRootQuery);
 		Query<Instructor> instructorsQuery = currentSession.createQuery(instructorsCriteriaQuery);
+		instructorsQuery.setFirstResult(0);
+		instructorsQuery.setMaxResults(5);
 		List<Instructor> listOfInstructors = instructorsQuery.getResultList();		
 		return listOfInstructors;
 	}
 
+	
+	@Override
+	public Instructor getInstructor(int theId) {
+		Session currentSession =  sessionFactory.getCurrentSession();
+		
+	   CriteriaBuilder cBuilder = currentSession.getCriteriaBuilder();
+		CriteriaQuery<Instructor> instructorCriteriaQuery = cBuilder.createQuery(Instructor.class);
+		Root<Instructor> instructorRootQuery = instructorCriteriaQuery.from(Instructor.class);
+		instructorCriteriaQuery.select(instructorRootQuery)
+		.where(cBuilder.equal(instructorRootQuery.get("id"), theId));
+		Query<Instructor> instructorQuery = currentSession.createQuery(instructorCriteriaQuery);
+		Instructor theInstructor =  instructorQuery.getSingleResult();
+		return theInstructor;
+	}
+
+	
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

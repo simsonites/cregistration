@@ -47,8 +47,7 @@ public class Course {
 	public Course(String title, String description, int numberOfCredits) {	
 		this.title = title;
 		this.description = description;
-		this.numberOfCredits = numberOfCredits;
-		this.students = new ArrayList<>();
+		this.numberOfCredits = numberOfCredits;		
 	}
 
 	public int getId() {
@@ -99,15 +98,13 @@ public class Course {
 		this.instructor = instructor;
 	}
 
-/*	@Override
-	public String toString() {
-		return "Course [id=" + this.id + ", title=" + this.title + ", description=" + this.description
-				+ ", numberOfCredits=" + this.numberOfCredits + ", students=" + this.students + ", instructor="
-				+ this.instructor + "]";
+	public void addStudentToCourse(Student tempStudent) {
+		if(this.students == null) {
+			this.students = new ArrayList<>();
+		}
+		this.students.add(tempStudent);
+		this.setStudents(students);
 	}
-	*/
-	
-	
 
 }
 

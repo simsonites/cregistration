@@ -12,13 +12,29 @@ import com.softpager.cregistration.entities.Course;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-	@Autowired
 	private CourseDao courseDao;
 	
+	@Autowired	
+	public CourseServiceImpl(CourseDao courseDao) {	
+		this.courseDao = courseDao;
+	}
+
 	@Override
 	@Transactional
 	public List<Course> getCourses() {		
 		return courseDao.getCourses();
+	}
+
+	@Override
+	@Transactional
+	public Course registerForCourse(int sId, int cId) {		
+		return courseDao.registerForCourse(sId, cId);
+	}
+
+	@Override
+	@Transactional
+	public Course getCourse(int theId) {
+		return courseDao.getCourse(theId);
 	}
 
 }

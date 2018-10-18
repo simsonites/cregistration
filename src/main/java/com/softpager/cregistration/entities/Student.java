@@ -18,6 +18,11 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+
 @Entity
 @Table(name="students")
 public class Student {
@@ -117,11 +122,6 @@ public class Student {
 		this.setCourses(courses);
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Student [id=" + this.id + ", firstName=" + this.firstName + ", lastName=" + this.lastName + ", email="
-//				+ this.email + ", gender=" + this.gender + ", courses=" + this.courses + "]";
-//	}	
 		
 }
 

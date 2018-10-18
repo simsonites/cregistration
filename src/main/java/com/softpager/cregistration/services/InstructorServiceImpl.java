@@ -21,4 +21,11 @@ public class InstructorServiceImpl implements InstructorService {
 		return  instructorDao.getInstructors();
 	}
 
+	@Override
+	@Transactional
+	public Instructor getInstructor(int theId) {	
+		return instructorDao.getInstructor(theId);
+	}
+
+
 }

@@ -1,8 +1,9 @@
 
  <%@ include file = "../includes/taglibs.jsp" %>
+  <%@ page import="com.softpager.cregistration.utils.ResourceMappings" %>
 <html>
 <head>
-<title>iCourses | Students</title>
+<title>CRP  | Students</title>
  <%@ include file = "../includes/css-js-links.jsp" %>  
 </head>
 <body>
@@ -34,9 +35,10 @@
 					</form:form>
 				</div>	
 				</div>		
+				
 				<div class="row">
 					<c:forEach var="temStudent" items="${student}">
-						<c:url var="regDetails" value="/students/details">
+						<c:url var="regDetails" value="${ResourceMappings.DETAILS}">
 							<c:param name="studentId" value="${temStudent.id }" />
 						</c:url>
 						<div class="col-md-12">
@@ -64,9 +66,10 @@
 						</div>
 						<!-- /.col-md-12 -->
 					</c:forEach>
-
 				</div>
 				<!-- /.row -->
+				
+				
 				<div class="row">
 					<div class="col-md-12">
 						<div class="load-more-btn">

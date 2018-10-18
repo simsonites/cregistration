@@ -27,6 +27,29 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.getStudent(theId);
 	}
 
+	@Override
+	@Transactional 
+	public Student registerForCourse(int sId, int cId) {	
+		return studentDao.registerForCourse(sId, cId);
+	}
+
+	@Override
+	@Transactional
+	public void create(Student newStudent) {	
+		studentDao.create(newStudent);
+	}
+
+	@Override
+	public void delete(int theId) {
+		studentDao.delete(theId);
+		
+	}
+
+	@Override
+	public List<Student> searchStudent(String studentName) {	
+		return studentDao.searchStudent(studentName);
+	}
+
 
 
 }

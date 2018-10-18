@@ -1,4 +1,5 @@
  <%@ include file = "../includes/taglibs.jsp" %>
+ <%@ page import="com.softpager.cregistration.utils.ResourceMappings" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -21,10 +22,12 @@
                         <div class="event-small-list clearfix">                       
                     		<ul>
 								<c:forEach var="temCourse" items="${courses}">
-									<c:url var="courseDetails" value="/courses/details">
+								
+									<c:url var="courseDetails" value="${ResourceMappings.DETAILS}">
 										<c:param name="courseId" value="${temCourse.id }" />
-									</c:url>
-								<li class="course-list"> <a href="${courseDetails}"> ${temCourse.title} </a></li> 	
+									</c:url>								
+									
+								<li> <a href="${courseDetails}"> ${temCourse.title} </a></li> 	
 								</c:forEach>
 							</ul>  						                     
                         </div>                                 

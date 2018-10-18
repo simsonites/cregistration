@@ -8,4 +8,8 @@ public interface CourseService {
 
 	List<Course> getCourses();
 
+	Course registerForCourse(int sId, int cId);
+
+	Course getCourse(int theId);
+
 }

@@ -8,4 +8,7 @@ public interface InstructorService {
 
 	List<Instructor> getInstructors();
 
+	Instructor getInstructor(int theId);
+
+
 }

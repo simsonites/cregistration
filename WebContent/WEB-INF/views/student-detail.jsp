@@ -1,10 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ include file="../includes/taglibs.jsp"%>
+ <%@ page import="com.softpager.cregistration.utils.ResourceMappings" %>
 <html>
 <head>
 <title>CRP | student details</title>
-
-
 
 <%@ include file="../includes/css-js-links.jsp"%>
 
@@ -18,20 +17,28 @@
 
 				<div class="widget-main">
 					<div class="widget-main-title">
+						<span class="input-group-btn">
+								<button class="btn btn-default" type="button" 
+								  onclick="window.location.href='list'; return false;">Back to list of students</button>
+							</span>	
 						<h3 class="text-center">Student Registration Details</h3>
-					</div>
+						</div>					
 					<div class="widget-inner">
 
-						<c:url var="delete" value="/students/delete">
+						<c:url var="delete" value="${ResourceMappings.DELETE }">
 							<c:param name="studentId" value="${student.id }" />
 						</c:url>
 
-						<c:url var="update" value="/students/update">
+						<c:url var="update" value="${ResourceMappings.UPDATE }">
 							<c:param name="studentId" value="${student.id }" />
 						</c:url>
 
-						<c:url var="addCourse" value="/courses/list">
+						<c:url var="addCourse" value="${ResourceMappings.LIST }">
 							<c:param name="studentId" value="${student.id }" />
+						</c:url>
+						
+						<c:url var="instructorDetails" value="${ResourceMappings.DETAILS }">
+						<c:param name="instructorId" value="${instructor.id }"></c:param>
 						</c:url>
 
 						<div class="prof-list-item clearfix">
@@ -70,7 +77,7 @@
 										<div class="row">
 											<a class="col-md-4" href="${update }">Edit information</a> <a
 												class="col-md-4" href="${delete }"
-												onclick=" if(!(confirm(' Your registration details will deleted from the database '))) return false; ">Cancel
+												onclick=" if(!(confirm(' Your registration details will be deleted from the database '))) return false; ">Cancel
 												registration</a>
 										</div>
 									</div>
@@ -78,6 +85,7 @@
 							</div>
 							<!-- /.prof-details -->
 							<h3 class=" text-center">Registered Courses</h3>
+							
 							<table class="table table-bordered">
 								<tr class="prof-name-list event-title">
 									<th>Course Title</th>
@@ -90,7 +98,7 @@
 									<tr>
 										<td>${ course.title }</td>
 										<td>${ course.numberOfCredits }</td>
-										<td><a href="#">${ course.instructor.title } ${ course.instructor.firstName }
+										<td><a href="${instructorDetails}">${ course.instructor.title } ${ course.instructor.firstName }
 												${ course.instructor.lastName }</a></td>
 										<td>${ course.description }</td>
 										<td><a href="${delete }"
@@ -102,7 +110,7 @@
 								</c:forEach>
 							</table>
 							<h4>
-								<a href="${addCourse }"> &nbsp; Register for more courses</a>
+								<a href="${addCourse }"> &nbsp; Register for courses</a>
 							</h4>
 						</div>
 						<!-- /.prof-list-item -->
